@@ -14,20 +14,32 @@
   <meta property="og:description" content="{{ description }}">
   <meta property="og:url" content="{{ canonical }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/design-system.css') }}">
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <header class="site-header">
-    <a class="brand" href="/">FácilTicket</a>
-    <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">Menú</button>
+    <div class="header-inner">
+    <a class="brand" href="/" aria-label="FácilTicket, inicio">
+      <span class="brand-mark" aria-hidden="true"><span></span></span>
+      <span>Fácil<span>Ticket</span></span>
+    </a>
+    <div class="header-mobile-actions">
+      <a class="button button-primary button-compact mobile-cta" href="{{ registration_url }}">Empezar gratis</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span class="visually-hidden">Abrir menú</span>
+        <span class="menu-icon" aria-hidden="true"></span>
+      </button>
+    </div>
     <nav id="main-nav" aria-label="Navegación principal">
       <a href="/como-funciona/">Cómo funciona</a>
       <a href="/funcionalidades/">Funcionalidades</a>
       <a href="/preguntas-frecuentes/">Preguntas frecuentes</a>
       <a href="/blog/">Blog</a>
       {% if login_url %}<a href="{{ login_url }}">Entrar</a>{% endif %}
-      <a class="button small" href="{{ registration_url }}">Empezar gratis</a>
+      <a class="button button-primary button-compact desktop-cta" href="{{ registration_url }}">Empezar gratis</a>
     </nav>
+    </div>
   </header>
   <main id="contenido">{% block content %}{% endblock %}</main>
   <footer class="site-footer">
