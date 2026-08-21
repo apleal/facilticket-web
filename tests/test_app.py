@@ -23,6 +23,7 @@ def test_home_seo_and_registration_link():
     assert b"Programa para hacer tickets de venta gratis" in response.data
     assert b"https://app.facilticket.es/registro" in response.data
     assert b'<link rel="canonical" href="https://facilticket.es/">' in response.data
+    assert b'<meta name="google-site-verification" content="NbYp4nbfyi9ICRMCCBo1Fo7XJkDmgqbNM6hxYPTMFh8">' in response.data
 
 
 def test_sitemap_contains_only_marketing_domain():
