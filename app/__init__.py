@@ -8,7 +8,7 @@ def create_app(test_config=None):
     app.config.from_mapping(
         PUBLIC_BASE_URL=os.getenv("PUBLIC_BASE_URL", "https://facilticket.es").rstrip("/"),
         REGISTRATION_URL=os.getenv(
-            "REGISTRATION_URL", "https://app.facilticket.es/register"
+            "REGISTRATION_URL", "https://app.facilticket.es/registro"
         ),
         LOGIN_URL=os.getenv("LOGIN_URL", ""),
         CONTACT_EMAIL=os.getenv("CONTACT_EMAIL", ""),
@@ -21,3 +21,4 @@ def create_app(test_config=None):
 
     app.register_blueprint(pages)
     return app
+
