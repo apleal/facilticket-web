@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <meta name="robots" content="{{ robots|default('index, follow') }}">
+  <link rel="canonical" href="{{ canonical }}">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="FácilTicket">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ canonical }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <a class="brand" href="/">FácilTicket</a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">Menú</button>
+    <nav id="main-nav" aria-label="Navegación principal">
+      <a href="/como-funciona/">Cómo funciona</a>
+      <a href="/funcionalidades/">Funcionalidades</a>
+      <a href="/preguntas-frecuentes/">Preguntas frecuentes</a>
+      <a href="/blog/">Blog</a>
+      {% if login_url %}<a href="{{ login_url }}">Entrar</a>{% endif %}
+      <a class="button small" href="{{ registration_url }}">Empezar gratis</a>
+    </nav>
+  </header>
+  <main id="contenido">{% block content %}{% endblock %}</main>
+  <footer class="site-footer">
+    <div><a class="brand" href="/">FácilTicket</a><p>Un programa sencillo para crear productos, registrar ventas e imprimir tickets.</p></div>
+    <div><h2>Producto</h2><a href="/funcionalidades/">Funcionalidades</a><a href="/como-funciona/">Cómo funciona</a><a href="/preguntas-frecuentes/">Preguntas frecuentes</a></div>
+    <div><h2>Recursos</h2><a href="/blog/">Blog</a><a href="/contacto/">Contacto</a></div>
+    <div><h2>Legal</h2><a href="/aviso-legal/">Aviso legal</a><a href="/privacidad/">Privacidad</a><a href="/cookies/">Cookies</a><a href="/terminos/">Términos</a></div>
+    <p class="copyright">© {{ current_year }} FácilTicket.</p>
+  </footer>
+  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</body>
+</html>
+

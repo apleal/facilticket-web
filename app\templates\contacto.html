@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block content %}
+<section class="page-hero"><div class="container narrow"><h1>Contacta con FácilTicket</h1><p class="lead">¿Tienes alguna pregunta sobre FácilTicket?</p>{% if contact_email %}<p>Escríbenos a <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>.</p>{% else %}<p>El canal de contacto estará disponible antes del lanzamiento público.</p>{% endif %}<p>También puedes consultar las <a href="/preguntas-frecuentes/">preguntas frecuentes</a>.</p></div></section>
+{% endblock %}
+
