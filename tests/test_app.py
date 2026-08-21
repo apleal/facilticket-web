@@ -21,7 +21,7 @@ def test_not_found_is_real_404():
 def test_home_seo_and_registration_link():
     response = client().get("/")
     assert b"Programa para hacer tickets de venta gratis" in response.data
-    assert b"https://app.facilticket.es/registro" in response.data
+    assert b"https://app.facilticket.es/register" in response.data
     assert b'<link rel="canonical" href="https://facilticket.es/">' in response.data
 
 
