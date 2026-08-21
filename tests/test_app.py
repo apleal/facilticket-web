@@ -29,3 +29,11 @@ def test_sitemap_contains_only_marketing_domain():
     response = client().get("/sitemap.xml")
     assert b"https://facilticket.es/funcionalidades/" in response.data
     assert b"app.facilticket.es" not in response.data
+
+
+def test_legal_notice_contains_approved_owner_details():
+    response = client().get("/aviso-legal/")
+    assert response.status_code == 200
+    assert b"Global Vendalia SLU" in response.data
+    assert b"B67210443" in response.data
+    assert b"info@ticketfacil.es" in response.data

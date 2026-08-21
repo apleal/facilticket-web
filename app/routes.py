@@ -99,8 +99,9 @@ def legal(page_name):
     if page_name not in legal_pages:
         return not_found(None)
     heading = legal_pages[page_name]
+    template = "aviso-legal.html" if page_name == "aviso-legal" else "legal.html"
     return render_template(
-        "legal.html", **page_context(page_name, f"/{page_name}/", heading=heading)
+        template, **page_context(page_name, f"/{page_name}/", heading=heading)
     )
 
 
@@ -134,4 +135,3 @@ def not_found(error):
     context = page_context("404", request.path, heading="Página no encontrada")
     context["robots"] = "noindex, follow"
     return render_template("404.html", **context), 404
-
